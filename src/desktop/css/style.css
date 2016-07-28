@@ -902,11 +902,12 @@ z-index: 1;
 }
 
 #map {
-    height: 100%;
-    width: 100%;
     position: absolute!important;
     top: 0;
     z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: 70px;
 }
 
 #map_content,
@@ -1652,6 +1653,7 @@ top: 35.2%;
 }
 header,section,.section{
     height: 100vh!important;
+    overflow: hidden;
 }
 .blacked{display:none}
 .site-nav:after{position:absolute;width:80px;height:100%;top:0;z-index:-1;-webkit-transition:all .25s;transition:all .25s}
