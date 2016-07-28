@@ -1,3 +1,14 @@
+//мобильное устройство?
+var isMobile = false; 
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+isMobile = true;
+}
+
+if (isMobile == true) {
+  $('.animation').addClass('animated');
+  $('<style>.animation,.animation *{-webkit-transition:0s all 0s!important;transition:0s all 0s!important;-webkit-animation-duration:0s!important;animation-duration:0s!important;-webkit-animation-delay:0s!important;animation-delay:0s!important}.section .site-nav.down,.section .site-nav.up{display:none!important}section{height:800px!important}</style>').appendTo('head');
+}
+
 $(document).ready(function(){
     
     $(".fancy").fancybox();
@@ -83,22 +94,22 @@ $(document).ready(function(){
     var step3="";
     var step4="";
     
-    $(".info1 .form .step1 span").on("click", function(){
+    $(".info12 .form .step1 span").on("click", function(){
         step1=$(this).text();
         $(".step1").hide();
         $(".step2").show(1000);
     });
-    $(".info1 .form .step2 span").on("click", function(){
+    $(".info12 .form .step2 span").on("click", function(){
         step2=$(this).text();
         $(".step2").hide();
         $(".step3").show(1000);
     });
-    $(".info1 .form .step3 span").on("click", function(){
+    $(".info12 .form .step3 span").on("click", function(){
         step3=$(this).text();
         $(".step3").hide();
         $(".step4").show(1000);
     });
-    $(".info1 .form .step4 span").on("click", function(){
+    $(".info12 .form .step4 span").on("click", function(){
         step4=$(this).text();
         $(".step4").hide();
         $(".step5").show(1000);
@@ -320,7 +331,7 @@ $(document).ready(function(){
         $(".open_menu").toggle();
     });
     
-    $(".open_menu .close a").on("click", function(e){
+    $(".open_menu .close a, .open_menu li a").on("click", function(e){
         e.preventDefault();
         $(".open_menu").toggle();
     });
@@ -359,3 +370,69 @@ $(document).ready(function(){
     
     
 });
+
+//навигация
+    
+    $(".site-nav.up").click(function(){
+        var pos = $(this).parent().offset().top-$(window).scrollTop();
+        if (pos>=0){
+            $("html, body").animate({ scrollTop: $($(this).parent().prev()).offset().top}, 500);
+        }else{
+            $("html, body").animate({ scrollTop: $($(this).parent()).offset().top}, 500);
+        }
+    }).on('mouseover', function() {
+        $(".site-nav.up").addClass('active');
+    }).on('mouseout', function() {
+        $(".site-nav.up").removeClass('active');
+    });
+
+    $(".site-nav.down").click(function(){
+        var pos = $(this).parent().offset().top-$(window).scrollTop();
+        if (pos<=0){
+            $("html, body").animate({ scrollTop: $($(this).parent().next()).offset().top}, 500);
+        }else{
+            $("html, body").animate({ scrollTop: $($(this).parent()).offset().top}, 500);
+        }
+    }).on('mouseover', function() {
+        $(".site-nav.down").addClass('active');
+    }).on('mouseout', function() {
+        $(".site-nav.down").removeClass('active');
+    });
+
+
+//stabilization
+
+function stabilize(){
+
+  $('.section:not(.rewievs):not(:hidden)').each(function(index, el) {
+  
+  var eTop = $(this).offset().top; 
+  var posTop = eTop - $(window).scrollTop();
+
+    if(posTop>-$(window).height()/2&&posTop<$(window).height()/2){
+      $("html, body").animate({ scrollTop: $(this).offset().top}, 250);
+      //console.log($(this).attr('class'));
+  }
+
+  });
+
+}
+$("html, body").on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", function(){
+  $("html, body").stop();
+});
+if (isMobile != true) {
+  $(window).scroll(function(){
+// menu-btn
+
+  //if ($(window).scrollTop()-$(window).height()>= 0) {
+  //  $('.menu-btn').addClass('active');
+  //}else{
+  //  $('.menu-btn').removeClass('active');
+  //}
+
+    clearTimeout($.data(this, 'scrollTimer'));
+    
+    $.data(this, 'scrollTimer',setTimeout(stabilize,1500));
+
+  });
+}

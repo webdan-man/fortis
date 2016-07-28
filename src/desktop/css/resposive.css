@@ -36,7 +36,7 @@ body, html
     }
     header
     {
-        padding-top: 17px;
+        /* padding-top: 17px; */
     }
     header .menu_phone
     {
@@ -615,7 +615,29 @@ body, html
     }
 }
 
+@media (max-width: 500px){
+    
+.question{
+    display: none;
+}
+#s1s1,#s1s2,#s1s3{
+	margin-top: 0;
+}
+#s1s1{
+	top: 8%;
+}
+#s1s2{
+    top: 39%;
+}
+#s1s3{
+    top: 71.4%;
+}
 
+header{height: 800px!important;}
+header .form1 form{
+	background: 0;
+}
+}
 @media (max-width: 400px)
 {
     header .var_items .item .title
