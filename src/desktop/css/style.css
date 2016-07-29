@@ -351,12 +351,14 @@ header .form1 form button {
 .info12 .title3 {
     /* margin-top: 22px; */
     font-size: 18px;
+    width: 50%;
+    display: inline-block;
 }
 
 .info12 .form {
     /* margin-top: 41px; */
     background: #fff;
-    height: 420px;
+    height: 612px;
     box-sizing: border-box;
     padding: 40px 20px;
 }
@@ -1061,7 +1063,8 @@ footer .copyright {
 
 footer .logo {
     text-align: right;
-    padding-right: 75px
+    padding-right: 75px;
+    /* display: inline-block; */
 }
 
 .info5 {
@@ -1090,7 +1093,8 @@ footer .logo {
 .info5 .block1 {
     z-index: 999;
     position: relative;
-    font-size: 0
+    font-size: 0;
+    text-align: left;
 }
 
 .info5 .block1 .girl {
@@ -1241,7 +1245,8 @@ textarea:-ms-input-placeholder {
     color: #fbfbfb;
     text-align: center;
     cursor: pointer;
-    width: 250px
+    width: 250px;
+    text-align: center;
 }
 
 .info5 .block2 .right {
@@ -1254,7 +1259,8 @@ textarea:-ms-input-placeholder {
     margin-top: 100px;
     padding-left: 55px;
     box-sizing: border-box;
-    background: url(../img/marker.png) center left no-repeat
+    background-image: url(../img/marker.png);
+    background-position: 48px 22px;
 }
 
 .info5 .block2 .right span {
@@ -1589,6 +1595,7 @@ label.error {
 #s3s2{
     margin-top: -13.809110629067245px;
     top: 27.301518438177872%;
+    text-align: center;
 }
 #s3s3{
     margin-top: 359.0368763557484px;
@@ -1628,10 +1635,10 @@ top: 35.2%;
 }
 #s8s1 {
 	margin-top: 3px;
-	top: 19%;
+	top: 18%;
 }
 #s8s2 {
-	margin-top: 86.657534px;
+	margin-top: 79.657534px;
 	top: 38.89041095890411%;
 }
 #s9s1{
@@ -1652,40 +1659,9 @@ top: 35.2%;
     transform: translateY(-50%);
 }
 header,section,.section{
-    height: 100vh!important;
+    height: 100vh;
     overflow: hidden;
 }
-.blacked{display:none}
-.site-nav:after{position:absolute;width:80px;height:100%;top:0;z-index:-1;-webkit-transition:all .25s;transition:all .25s}
-.site-nav{position:fixed;position: absolute;width:50%;max-width:90px;height:100%;z-index:1;top:0;opacity:0;-webkit-transition:all .25s;transition:all .25s;cursor:pointer;}
-.site-nav.active{opacity:1!important}
-.site-nav.up{left:0;opacity:0}
-.site-nav.up:before{background:url(../img/up.png) no-repeat;width:32px;height:18px;left:24px;position:absolute;top:50%;margin-top:-9px;z-index:3}
-.site-nav.down:before{background:url(../img/down.png) no-repeat;width:32px;height:18px;right:24px;position:absolute;z-index:3;top:50%;margin-top:-9px}
-.site-nav:hover{background-position:24px center;opacity:1}
-.site-nav:hover:before{top:50%}
-.site-nav.up:after{left:0;background:rgba(255,255,255,.15);-webkit-transition:all .25s;transition:all .25s}
-.site-nav.down{right:0}
-.site-nav.down:after{right:0;background:rgba(255,255,255,.15)}
-.site-nav.up{z-index:20}
-.site-nav.down{z-index:20}
-.site-nav.active{opacity:1!important}
-.site-nav.up{left:0;opacity:0}
-.site-nav:hover{background-position:24px center;opacity:1}
-.site-nav:hover:before{top:50%}
-.site-nav.down{right:0}
-.site-nav.down.animation4{opacity:1}
-.site-nav.down.animated{opacity:1}
-.site-nav.down.animation4.animated:before{-webkit-animation:downtrack 4s infinite linear,alternate blim .7s infinite cubic-bezier(1,.03,0,.99);animation:downtrack 4s infinite linear,alternate blim .7s infinite cubic-bezier(1,.03,0,.99)}
-@-webkit-keyframes downtrack{0%{top:0}
-100%{top:100%}
-}
-@keyframes downtrack{0%{top:0}
-100%{top:100%}
-}
-@-webkit-keyframes blim{0%{opacity:1}
-100%{opacity:0}
-}
-@keyframes blim{0%{opacity:1}
-100%{opacity:0}
+.info5 .container3 .img .pc_only{
+    display: none;
 }
