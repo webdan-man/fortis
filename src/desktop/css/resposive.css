@@ -893,6 +893,12 @@ footer{
 .map{
 background-image: url(../img/map.jpg);
 }
+.info12 .form{
+    height: 612px;
+}
+.info5 .block2 .right {
+    background-position: 48px 22px;
+}
 }
 @media (max-width: 400px)
 {

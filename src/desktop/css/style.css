@@ -142,7 +142,7 @@ header {
 
 header .menu {
     width: 20%;
-    margin-top: 30px
+    margin-top: 60px;
 }
 
 header .menu a {
@@ -159,7 +159,7 @@ header .logo,
 header .phone,
 header .var_items .item {
     display: inline-block;
-    vertical-align: top
+    vertical-align: top;
 }
 
 header .menu a:hover {
@@ -358,9 +358,9 @@ header .form1 form button {
 .info12 .form {
     /* margin-top: 41px; */
     background: #fff;
-    height: 612px;
     box-sizing: border-box;
     padding: 40px 20px;
+    height: 410px;
 }
 
 .info12 .form .form_title {
@@ -996,7 +996,7 @@ z-index: 1;
     outline: 0!important;
     padding-right: 10px
 }
-.map .form .input_block textarea {
+.form .input_block textarea {
     background: 0 0;
     border: none;
     border-bottom: 1px solid #cacaca;
@@ -1007,8 +1007,11 @@ z-index: 1;
     outline: 0!important;
     padding-right: 10px;
     resize: none;
+    font-family: Arial;
 }
-
+.open_question textarea{
+	padding-left: 0px!important;
+}
 .map .form .btn_block {
     width: 100%
 }
@@ -1260,7 +1263,8 @@ textarea:-ms-input-placeholder {
     padding-left: 55px;
     box-sizing: border-box;
     background-image: url(../img/marker.png);
-    background-position: 48px 22px;
+    background-position: center left;
+    background-repeat: no-repeat;
 }
 
 .info5 .block2 .right span {
@@ -1550,7 +1554,7 @@ label.error {
     right: 50px;
 }
 #maket {
-    background: url(../mak.jpg)no-repeat top center;
+    background: url(../maket.jpg)no-repeat top center;
     width: 100%;
     top: 0;
     left: 0;
@@ -1662,6 +1666,6 @@ header,section,.section{
     height: 100vh;
     overflow: hidden;
 }
-.info5 .container3 .img .pc_only{
+.info5 .container3 .img{
     display: none;
 }

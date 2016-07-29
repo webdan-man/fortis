@@ -143,7 +143,7 @@ $(document).ready(function(){
             var phone=$("header .form1 form input[name='phone']").val();
             var subject="Бесплатная консультация страхового брокера";
             $.ajax({
-                url:"/email.php",
+                url:"ajax/mail.php",
                 type:"POST",
                 data: {
                     phone: phone,
@@ -172,7 +172,7 @@ $(document).ready(function(){
             var name=$(".info1 .form form input[name='name']").val();
             var subject="Заявка на звонок";
             $.ajax({
-                url:"/email.php",
+                url:"ajax/mail.php",
                 type:"POST",
                 data: {
                     phone: phone,
@@ -205,7 +205,7 @@ $(document).ready(function(){
             var name=$(".info5 .block2 .left .form form input[name='name']").val();
             var subject="Запись на консультацию к Елене";
             $.ajax({
-                url:"/email.php",
+                url:"ajax/mail.php",
                 type:"POST",
                 data: {
                     phone: phone,
@@ -235,10 +235,10 @@ $(document).ready(function(){
         submitHandler: function(form) {
             var phone=$(".map .form form input[name='phone']").val();
             var name=$(".map .form form input[name='name']").val();
-            var question=$(".map .form form input[name='question']").val();
+            var question=$(".map .form form textarea[name='question']").val();
             var subject="Обратная связь";
             $.ajax({
-                url:"/email.php",
+                url:"ajax/mail.php",
                 type:"POST",
                 data: {
                     phone: phone,
@@ -269,10 +269,10 @@ $(document).ready(function(){
         submitHandler: function(form) {
             var phone=$(".map .form2 form input[name='phone']").val();
             var name=$(".map .form2 form input[name='name']").val();
-            var question=$(".map .form2 form input[name='question']").val();
+            var question=$(".map .form2 form textarea[name='question']").val();
             var subject="Обратная связь";
             $.ajax({
-                url:"/email.php",
+                url:"ajax/mail.php",
                 type:"POST",
                 data: {
                     phone: phone,
@@ -303,10 +303,10 @@ $(document).ready(function(){
         submitHandler: function(form) {
             var phone=$(".open_question .form form input[name='phone']").val();
             var name=$(".open_question .form form input[name='name']").val();
-            var question=$(".open_question .form form input[name='question']").val();
+            var question=$(".open_question .form form textarea[name='question']").val();
             var subject="Обратная связь";
             $.ajax({
-                url:"/email.php",
+                url:"ajax/mail.php",
                 type:"POST",
                 data: {
                     phone: phone,
