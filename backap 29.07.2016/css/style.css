@@ -1386,7 +1386,7 @@ label.error {
 }
 
 .open_question .form .input_block input {
-    background: none;
+    background: 0 0;
     border: none;
     border-bottom: 1px solid #cacaca;
     width: 100%;
@@ -1552,6 +1552,17 @@ label.error {
 }
 .right {
     right: 50px;
+}
+#maket {
+    background: url(../maket.jpg)no-repeat top center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: 10;
+    height: 9795px;
+    position: absolute;
+    display: none;
 }
 #s1s1 {
     margin-top: 13.228915662650602px;
