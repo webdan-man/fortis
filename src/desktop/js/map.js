@@ -85,16 +85,17 @@ function init() {
     var map = new google.maps.Map(mapElement, mapOptions);
 
     // Let's also add a marker while we're at it
+
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(55.7340781, 37.589659700000056),
+        position: new google.maps.LatLng(55.7348781, 37.591059700000056),
         map: map,
         icon: {
-            url: 'img/point.png',
-            origin: new google.maps.Point(0, 0),
+            url: '../img/point.png',
+            origin: new google.maps.Point(-150, -50),
             origin: new google.maps.Point(0, 0),
             size: new google.maps.Size(368, 119),
         },
         title: 'Fortis'
     });
-
+    
 }

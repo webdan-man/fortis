@@ -87,7 +87,7 @@
                     <div class="form1">
                         <h2 class="title">Бесплатная консультация
                             <br/>страхового брокера</h2>
-                        <form action="#" method="POST">
+                        <form action="ajax/mail.php" method="POST">
                             <input name="phone" type="text" placeholder="Телефон">
                             <button type="submit">Получить
                                 <br/>консультацию</button>
@@ -135,7 +135,7 @@
                 </a>
             </div>
             <div class="form">
-                <form action="#" method="POST" novalidate="novalidate">
+                <form action="ajax/mail.php" method="POST" novalidate="novalidate">
                     <div class="form_title">Задайте свой вопрос
                         <br/>нашему специалисту</div>
                     <div class="input_block">
@@ -267,7 +267,7 @@
                         <div class="step5 hidden">
                             <div class="form_title"> Заполните форму и наш менеджер снимет все вопросы выбора
                                 <br/>страховой компании под ваши требования за 15 минут </div>
-                            <form action="#" method="POST">
+                            <form action="ajax/mail.php" method="POST">
                                 <input name="name" type="text" placeholder="Введите имя">
                                 <input name="phone" type="text" placeholder="Введите телефон">
                                 <input type="submit" value="Отправить"> </form>
@@ -495,7 +495,7 @@
                             <div class="form_title">Запишитесь на консультацию с
                                 <br/>Юртаевой Еленой Васильевной</div>
                             <div class="form">
-                                <form action="#" method="POST">
+                                <form action="ajax/mail.php" method="POST">
                                     <input name="name" type="text" placeholder="Имя">
                                     <input name="phone" type="text" placeholder="Телефон">
                                     <div class="btn_block">
@@ -586,7 +586,7 @@
             <div class="slice" id="s9s2">
                 <div class="container">
                     <div class="form pc_only">
-                        <form action="#" method="POST">
+                        <form action="ajax/mail.php" method="POST">
                             <div class="form_title">Остались вопросы? Пишите</div>
                             <div class="input_block">
                                 <input name="name" type="text" placeholder="Введите имя">
@@ -605,13 +605,15 @@
                     </div>
                 </div>
             </div>
-            <div id="map"></div>
             <div class="q_open_close phone_only">
-                <img src="img/mob/q.png" alt> Задать вопрос
-                <img class="q1" src="img/mob/q_open.png" alt>
-                <img class="q2" src="img/mob/q_close.png" alt>
+                <div class="cls">
+                    <img src="img/mob/q.png" alt>
+                    <p>Задать вопрос</p>
+                    <img class="q1" src="img/mob/q_open.png" alt>
+                    <img class="q2" src="img/mob/q_close.png" alt>
+                </div>
                 <div class="form form2 phone_only">
-                    <form action="#" method="POST" novalidate="novalidate">
+                    <form action="ajax/mail.php" method="POST" novalidate="novalidate">
                         <div class="form_title">Остались вопросы? Пишите</div>
                         <div class="input_block">
                             <input name="name" type="text" placeholder="Введите имя">
@@ -629,6 +631,7 @@
                     </form>
                 </div>
             </div>
+            <div id="map"></div>
             <footer>
                 <div class="copyright">© 2016 Fortis</div>
                 <div class="logo">

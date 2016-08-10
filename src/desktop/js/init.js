@@ -67,8 +67,6 @@ function initalize() {
     }(document, "script", ["https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
         "js/libs.js",
         "js/main.js",
-        "https://maps.googleapis.com/maps/api/js?sensor=false&amp;key=AIzaSyDJ-HDjSq2SeGl788I-5-7-EHAK29oUt2g",
-        "js/map.js",
     ]);
     console.log('js-append');
     // hide-loader

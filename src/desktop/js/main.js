@@ -1,12 +1,14 @@
 //мобильное устройство?
+var win_w = $(window).width();
+var win_h = $(window).height();
 var isMobile = false;
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     isMobile = true;
 }
 
-if (isMobile == true) {
+if (isMobile == true || win_w < 980 || win_h < 600) {
     $('.animation').addClass('animated');
-    $('<style>.animation,.animation *{-webkit-transition:0s all 0s!important;transition:0s all 0s!important;-webkit-animation-duration:0s!important;animation-duration:0s!important;-webkit-animation-delay:0s!important;animation-delay:0s!important}.section .site-nav.down,.section .site-nav.up{display:none!important}section{height:800px!important}</style>').appendTo('head');
+    $('<style>.animation,.animation *{-webkit-transition:0s all 0s!important;transition:0s all 0s!important;-webkit-animation-duration:0s!important;animation-duration:0s!important;-webkit-animation-delay:0s!important;animation-delay:0s!important}.section .site-nav.down,.section .site-nav.up{display:none!important}.section{min-height:600px; margin-top: -1px;}</style>').appendTo('head');
 }
 
 $(document).ready(function() {
@@ -45,8 +47,6 @@ $(document).ready(function() {
         $(this).css('display', 'none');
     });
 
-    $("input[name='phone']").mask("+7 999 999-9999");
-
     $(".open_menu ul li a").on('click', function(event) {
         event.preventDefault();
         $('html, body').animate({
@@ -54,8 +54,8 @@ $(document).ready(function() {
         }, 500);
     });
 
-    $(".q_open_close").on("click", function() {
-        $(this).toggleClass("active");
+    $(".cls").on("click", function() {
+        $(this).closest('.q_open_close').toggleClass("active");
     });
 
     $(".fixed_header .right .btn").on("click", function(e) {
@@ -122,200 +122,298 @@ $(document).ready(function() {
 
     $('#cascade-slider2').cascadeSlider2({});
 
+    /*
+        $.validator.addMethod(
+            "regex",
+            function(value, element, regexp) {
+                var re = new RegExp(regexp);
+                return this.optional(element) || re.test(value);
+            },
+            "Please check your input."
+        );
 
-    $.validator.addMethod(
-        "regex",
-        function(value, element, regexp) {
-            var re = new RegExp(regexp);
-            return this.optional(element) || re.test(value);
-        },
-        "Please check your input."
-    );
-
-    $("header .form1 form").validate({
-        rules: {
-            phone: {
-                regex: /^[0-9-+ .()]+$/,
-                required: true
-            }
-
-        },
-        submitHandler: function(form) {
-            var phone = $("header .form1 form input[name='phone']").val();
-            var subject = "Бесплатная консультация страхового брокера";
-            $.ajax({
-                url: "ajax/mail.php",
-                type: "POST",
-                data: {
-                    phone: phone,
-                    subject: subject
-                },
-                success: function(msg) {
-                    $("#tnx_btn").trigger("click");
+        $("header .form1 form").validate({
+            rules: {
+                phone: {
+                    regex: /^[0-9-+ .()]+$/,
+                    required: true
                 }
-            });
+
+            },
+            submitHandler: function(form) {
+                var phone = $("header .form1 form input[name='phone']").val();
+                var subject = "Бесплатная консультация страхового брокера";
+                $.ajax({
+                    url: "ajax/mail.php",
+                    type: "POST",
+                    data: {
+                        phone: phone,
+                        subject: subject
+                    },
+                    success: function(msg) {
+                        $("#tnx_btn").trigger("click");
+                    }
+                });
+            }
+        });
+
+        $(".info1 .form form").validate({
+            rules: {
+                phone: {
+                    regex: /^[0-9-+ .()]+$/,
+                    required: true
+                },
+                name: {
+                    required: true
+                }
+
+            },
+            submitHandler: function(form) {
+                var phone = $(".info1 .form form input[name='phone']").val();
+                var name = $(".info1 .form form input[name='name']").val();
+                var subject = "Заявка на звонок";
+                $.ajax({
+                    url: "ajax/mail.php",
+                    type: "POST",
+                    data: {
+                        phone: phone,
+                        name: name,
+                        subject: subject,
+                        step1: step1,
+                        step2: step2,
+                        step3: step3,
+                        step4: step4
+                    },
+                    success: function(msg) {
+                        $("#tnx_btn").trigger("click");
+                    }
+                });
+            }
+        });
+
+        $(".info5 .block2 .left .form form").validate({
+            rules: {
+                phone: {
+                    regex: /^[0-9-+ .()]+$/,
+                    required: true
+                },
+                name: {
+                    required: true
+                }
+            },
+            submitHandler: function(form) {
+                var phone = $(".info5 .block2 .left .form form input[name='phone']").val();
+                var name = $(".info5 .block2 .left .form form input[name='name']").val();
+                var subject = "Запись на консультацию к Елене";
+                $.ajax({
+                    url: "ajax/mail.php",
+                    type: "POST",
+                    data: {
+                        phone: phone,
+                        name: name,
+                        subject: subject
+                    },
+                    success: function(msg) {
+                        $("#tnx_btn").trigger("click");
+                    }
+                });
+            }
+        });
+
+        $(".map .form form").validate({
+            rules: {
+                phone: {
+                    regex: /^[0-9-+ .()]+$/,
+                    required: true
+                },
+                name: {
+                    required: true
+                },
+                question: {
+                    required: true
+                }
+            },
+            submitHandler: function(form) {
+                var phone = $(".map .form form input[name='phone']").val();
+                var name = $(".map .form form input[name='name']").val();
+                var question = $(".map .form form textarea[name='question']").val();
+                var subject = "Обратная связь";
+                $.ajax({
+                    url: "ajax/mail.php",
+                    type: "POST",
+                    data: {
+                        phone: phone,
+                        name: name,
+                        question: question,
+                        subject: subject
+                    },
+                    success: function(msg) {
+                        $("#tnx_btn").trigger("click");
+                    }
+                });
+            }
+        });
+
+        $(".map .form2 form").validate({
+            rules: {
+                phone: {
+                    regex: /^[0-9-+ .()]+$/,
+                    required: true
+                },
+                name: {
+                    required: true
+                },
+                question: {
+                    required: true
+                }
+            },
+            submitHandler: function(form) {
+                var phone = $(".map .form2 form input[name='phone']").val();
+                var name = $(".map .form2 form input[name='name']").val();
+                var question = $(".map .form2 form textarea[name='question']").val();
+                var subject = "Обратная связь";
+                $.ajax({
+                    url: "ajax/mail.php",
+                    type: "POST",
+                    data: {
+                        phone: phone,
+                        name: name,
+                        question: question,
+                        subject: subject
+                    },
+                    success: function(msg) {
+                        $("#tnx_btn").trigger("click");
+                    }
+                });
+            }
+        });
+
+        $(".open_question .form form").validate({
+            rules: {
+                phone: {
+                    regex: /^[0-9-+ .()]+$/,
+                    required: true
+                },
+                name: {
+                    required: true
+                },
+                question: {
+                    required: true
+                }
+            },
+            submitHandler: function(form) {
+                var phone = $(".open_question .form form input[name='phone']").val();
+                var name = $(".open_question .form form input[name='name']").val();
+                var question = $(".open_question .form form textarea[name='question']").val();
+                var subject = "Обратная связь";
+                $.ajax({
+                    url: "ajax/mail.php",
+                    type: "POST",
+                    data: {
+                        phone: phone,
+                        name: name,
+                        question: question,
+                        subject: subject
+                    },
+                    success: function(msg) {
+                        $("#tnx_btn").trigger("click");
+                    }
+                });
+            }
+        });
+        */
+    function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
+    }
+
+    function run_geo(geo_url) {
+        $.ajax({
+            type: 'GET',
+            url: geo_url,
+            dataType: 'xml',
+            success: function(xml) {
+                $(xml).find('ip').each(function() {
+                    var city = $(this).find('city').text();
+                    var region = $(this).find('region').text();
+                    if (city != region) {
+                        var ipg = city + ', ' + region;
+                    } else {
+                        var ipg = city;
+                    }
+                    $('<input type="hidden" />').attr({
+                        name: 'location',
+                        class: 'location',
+                        value: ipg
+                    }).appendTo("form");
+                });
+            }
+        });
+    }
+    $.get("http://ipinfo.io", function(response) {
+        geo_url = 'http://ipgeobase.ru:7020/geo?ip=' + response.ip;
+        run_geo(geo_url);
+    }, "jsonp");
+    utm = [];
+    $.each(["utm_source", "utm_medium", "utm_campaign", "utm_term", 'source_type', 'source', 'position_type', 'position', 'added', 'creative', 'matchtype'], function(i, v) {
+        $('<input type="hidden" />').attr({
+            name: v,
+            class: v,
+            value: function() {
+                if (getURLParameter(v) == undefined) return '-';
+                else return getURLParameter(v)
+            }
+        }).appendTo("form")
+    });
+    $('<input type="hidden" />').attr({
+        name: 'url',
+        value: document.location.href
+    }).appendTo("form");
+    $('<input type="hidden" />').attr({
+        name: 'title',
+        value: document.title
+    }).appendTo("form");
+
+    $('input[name="name"]').blur(function() {
+        if ($(this).val().length < 3) {
+            $(this).addClass('error-input');
         }
     });
-
-    $(".info1 .form form").validate({
-        rules: {
-            phone: {
-                regex: /^[0-9-+ .()]+$/,
-                required: true
-            },
-            name: {
-                required: true
-            }
-
-        },
-        submitHandler: function(form) {
-            var phone = $(".info1 .form form input[name='phone']").val();
-            var name = $(".info1 .form form input[name='name']").val();
-            var subject = "Заявка на звонок";
-            $.ajax({
-                url: "ajax/mail.php",
-                type: "POST",
-                data: {
-                    phone: phone,
-                    name: name,
-                    subject: subject,
-                    step1: step1,
-                    step2: step2,
-                    step3: step3,
-                    step4: step4
-                },
-                success: function(msg) {
-                    $("#tnx_btn").trigger("click");
-                }
-            });
-        }
+    $('input[name="name"]').focus(function() {
+        $(this).removeClass('error-input');
     });
 
-    $(".info5 .block2 .left .form form").validate({
-        rules: {
-            phone: {
-                regex: /^[0-9-+ .()]+$/,
-                required: true
-            },
-            name: {
-                required: true
-            }
-        },
-        submitHandler: function(form) {
-            var phone = $(".info5 .block2 .left .form form input[name='phone']").val();
-            var name = $(".info5 .block2 .left .form form input[name='name']").val();
-            var subject = "Запись на консультацию к Елене";
-            $.ajax({
-                url: "ajax/mail.php",
-                type: "POST",
-                data: {
-                    phone: phone,
-                    name: name,
-                    subject: subject
-                },
-                success: function(msg) {
-                    $("#tnx_btn").trigger("click");
-                }
-            });
+    $('input[name="phone"]').mask('+7 (999) 999-99-99');
+    $('input[name="phone"]').blur(function() {
+        if ($(this).val().length != 18) {
+            $(this).addClass('error-input');
         }
     });
-
-    $(".map .form form").validate({
-        rules: {
-            phone: {
-                regex: /^[0-9-+ .()]+$/,
-                required: true
-            },
-            name: {
-                required: true
-            },
-            question: {
-                required: true
-            }
-        },
-        submitHandler: function(form) {
-            var phone = $(".map .form form input[name='phone']").val();
-            var name = $(".map .form form input[name='name']").val();
-            var question = $(".map .form form textarea[name='question']").val();
-            var subject = "Обратная связь";
-            $.ajax({
-                url: "ajax/mail.php",
-                type: "POST",
-                data: {
-                    phone: phone,
-                    name: name,
-                    question: question,
-                    subject: subject
-                },
-                success: function(msg) {
-                    $("#tnx_btn").trigger("click");
-                }
-            });
-        }
+    $('input[name="phone"]').focus(function() {
+        $(this).removeClass('error-input');
     });
 
-    $(".map .form2 form").validate({
-        rules: {
-            phone: {
-                regex: /^[0-9-+ .()]+$/,
-                required: true
-            },
-            name: {
-                required: true
-            },
-            question: {
-                required: true
-            }
-        },
-        submitHandler: function(form) {
-            var phone = $(".map .form2 form input[name='phone']").val();
-            var name = $(".map .form2 form input[name='name']").val();
-            var question = $(".map .form2 form textarea[name='question']").val();
-            var subject = "Обратная связь";
-            $.ajax({
-                url: "ajax/mail.php",
-                type: "POST",
-                data: {
-                    phone: phone,
-                    name: name,
-                    question: question,
-                    subject: subject
-                },
-                success: function(msg) {
-                    $("#tnx_btn").trigger("click");
-                }
-            });
+    $('textarea').blur(function() {
+        if ($(this).val().length < 3) {
+            $(this).addClass('error-input');
         }
     });
+    $('textarea').focus(function() {
+        $(this).removeClass('error-input');
+    });
 
-    $(".open_question .form form").validate({
-        rules: {
-            phone: {
-                regex: /^[0-9-+ .()]+$/,
-                required: true
-            },
-            name: {
-                required: true
-            },
-            question: {
-                required: true
-            }
-        },
-        submitHandler: function(form) {
-            var phone = $(".open_question .form form input[name='phone']").val();
-            var name = $(".open_question .form form input[name='name']").val();
-            var question = $(".open_question .form form textarea[name='question']").val();
-            var subject = "Обратная связь";
+    $('form').submit(function(e) {
+        e.preventDefault();
+        $(this).find('input[type="text"]').trigger('blur');
+        $(this).find('textarea').trigger('blur');
+        if (!$(this).find('input[type="text"]').hasClass('error-input') && !$(this).find('textarea').hasClass('error-input')) {
+            var type = $(this).attr('method');
+            var url = $(this).attr('action');
+            var data = $(this).serialize();
             $.ajax({
-                url: "ajax/mail.php",
-                type: "POST",
-                data: {
-                    phone: phone,
-                    name: name,
-                    question: question,
-                    subject: subject
-                },
-                success: function(msg) {
+                type: type,
+                url: url,
+                data: data,
+                success: function() {
                     $("#tnx_btn").trigger("click");
                 }
             });
@@ -357,7 +455,7 @@ $(document).ready(function() {
         controls: false
     });
 
-    if ($(window).width() < 980) {
+    if ($(window).width() <= 800) {
         $('.info4 .tab_block .tab_content').bxSlider({
             pager: true,
             auto: true,
@@ -367,7 +465,8 @@ $(document).ready(function() {
     }
 
 
-
+    $('<figure><object data="ajax/map.html"></object></figure>').appendTo('#map');
+    console.log('map.append');
 
 });
 
@@ -396,13 +495,6 @@ $("html, body").on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touch
 });
 if (isMobile != true) {
     $(window).scroll(function() {
-        // menu-btn
-
-        //if ($(window).scrollTop()-$(window).height()>= 0) {
-        //  $('.menu-btn').addClass('active');
-        //}else{
-        //  $('.menu-btn').removeClass('active');
-        //}
 
         clearTimeout($.data(this, 'scrollTimer'));
 
