@@ -91,8 +91,7 @@ function init() {
         map: map,
         icon: {
             url: '../img/point.png',
-            origin: new google.maps.Point(-150, -50),
-            origin: new google.maps.Point(0, 0),
+            origin: new google.maps.Point(-150, 0),
             size: new google.maps.Size(368, 119),
         },
         title: 'Fortis'
