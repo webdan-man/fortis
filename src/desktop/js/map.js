@@ -10,7 +10,7 @@ function init() {
         scrollwheel: false,
 
         // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(55.7348781, 37.591059700000056), // New York
+        center: new google.maps.LatLng(55.734578099999984,37.591256522090205), // New York
 
         // How you would like to style the map. 
         // This is where you would paste any style found on Snazzy Maps.
@@ -81,18 +81,17 @@ function init() {
     // We are using a div with id="map" seen below in the <body>
     var mapElement = document.getElementById('map');
 
-    // Create the Google Map using our element and options defined above
     var map = new google.maps.Map(mapElement, mapOptions);
 
-    // Let's also add a marker while we're at it
 
     var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(55.7348781, 37.591059700000056),
+        position: new google.maps.LatLng(55.734078099999984,37.588256522090205),
         map: map,
         icon: {
             url: '../img/point.png',
-            origin: new google.maps.Point(-150, 0),
             size: new google.maps.Size(368, 119),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(64, 119)
         },
         title: 'Fortis'
     });

@@ -936,7 +936,7 @@ img.hand {
 
 #map {
     position : absolute!important;
-    top : 0;
+    top: -40px;
     z-index : 2;
     left : 0;
     right : 0;
